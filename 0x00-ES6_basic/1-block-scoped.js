@@ -4,7 +4,9 @@ export default function taskBlock(trueOrFalse) {
   
     if (trueOrFalse) {
       const task = true;
+      // disabled line
       const task2 = false;
+      // disabled line
     }
   
     return [task, task2];
