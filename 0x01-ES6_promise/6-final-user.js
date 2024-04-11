@@ -1,18 +1,24 @@
 import signUpUser from './4-user-promise';
 import uploadPhoto from './5-photo-reject';
 
-export default function handleProfileSignup(firstName, lastName, fileName) {
-  // calling the imported function
-  const promise1 = signUpUser(firstName, lastName);
-  const promise2 = uploadPhoto(fileName);
+export default async function handleProfileSignup(firstName, lastName, fileName) {
+  try {
+    const userData = await signUpUser(firstName, lastName);
+    const fileData = await uploadPhoto(fileName);
+    
+    // Constructing objects with status and value
+    const userDataObject = { status: 'fulfilled', value: userData };
+    const fileDataObject = { status: 'fulfilled', value: fileData };
 
-  // waiting for the promise to settle
-  return Promise.all([promise1, promise2])
-    .then(([response1, response2]) => [
-      { status: 'fulfilled', value: response1 },
-      { status: 'fulfilled', value: response2 },
-    ])
-    .catch((error) => [
-      { status: 'rejected', value: error },
-    ]);
+    // Returning the array containing the objects
+    return [userDataObject, fileDataObject];
+  } catch (error) {
+    // Error handling for both operations
+    const userDataErrorObject = { status: 'rejected', value: error.toString() };
+    const fileDataErrorObject = { status: 'rejected', value: error.toString() };
+    
+    // Returning the array containing the error objects
+    return [userDataErrorObject, fileDataErrorObject];
+  }
 }
+
