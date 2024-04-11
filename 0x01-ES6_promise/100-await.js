@@ -9,7 +9,7 @@ export default async function asyncUploadUser() {
       user: result2,
     };
   } catch (error) {
-    console.error({ photo: error, user: error });
+    console.error({ photo: null, user: null });
     return {};
   }
 }
