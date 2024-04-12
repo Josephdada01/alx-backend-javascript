@@ -14,7 +14,7 @@ export default class Currency {
     if (typeof value !== 'string') {
       throw new TypeError('code must be a string');
 	  }
-	  this._code = value;
+    this._code = value;
   }
 
   get name() {
@@ -23,12 +23,13 @@ export default class Currency {
 
   set name(value) {
   if (typeof value !== 'string') {
-	  throw new TypeError('name must be a string');
-	  }
-	  this._name = value;
+    throw new TypeError('name must be a string');
+    }
+    this._name = value;
   }
 
-  // method named displayFullCurrency that will return the attributes in the following format name (code).
+  // method named displayFullCurrency that will return the attributes in the 
+  //following format name (code).
   displayFullCurrency() {
 	   return `${this._name} (${this._code})`;
 	  }
