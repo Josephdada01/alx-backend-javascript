@@ -8,12 +8,18 @@ export default class Airport {
   get name() {
     return this._name;
   }
+  set name(value) {
+    return this._name = value;
+  }
 
   get code() {
     return this._code;
   }
+  set code(value) {
+    return this._code = value;
+  }
 
   toString() {
-    return this._code;
+    return `[object ${this.code}]`;
   }
 }
