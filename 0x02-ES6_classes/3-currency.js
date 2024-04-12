@@ -13,7 +13,7 @@ export default class Currency {
   set code(value) {
     if (typeof value !== 'string') {
       throw new TypeError('code must be a string');
-	  }
+    }
     this._code = value;
   }
 
@@ -31,6 +31,6 @@ export default class Currency {
   // method named displayFullCurrency that will return the 
   // attributes in the following format name (code).
   displayFullCurrency() {
-	   return `${this._name} (${this._code})`;
-	  }
+    return `${this._name} (${this._code})`;
+    }
 }
