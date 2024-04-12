@@ -28,8 +28,8 @@ export default class Currency {
     this._name = value;
   }
 
-  // method named displayFullCurrency that will return the attributes in the 
-  //following format name (code).
+  // method named displayFullCurrency that will return the 
+  // attributes in the following format name (code).
   displayFullCurrency() {
 	   return `${this._name} (${this._code})`;
 	  }
