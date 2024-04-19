@@ -51,10 +51,10 @@ function executeWork(employee) {
     }
 }
 function teachClass(todayClass) {
-    if (teachClass === "Math") {
+    if (todayClass === "Math") {
         return "Teaching Math";
     }
-    else if (teachClass === "History") {
+    else if (todayClass === "History") {
         return "Teaching History";
     }
     else {
