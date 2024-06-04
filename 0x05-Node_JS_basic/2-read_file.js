@@ -17,7 +17,7 @@ function countStudents(path) {
     }
 
     // Remove the header row
-    const headers = lines.shift().split(',');
+    lines.shift();
 
     // Initialize variables to hold the count and student lists
     const students = {};
@@ -25,14 +25,14 @@ function countStudents(path) {
 
     // Process each line
     lines.forEach((line) => {
-      const [firstname, lastname, age, field] = line.split(',');
+      const [firstname, , , field] = line.split(',');
 
       if (firstname && field) {
         if (!students[field]) {
           students[field] = [];
         }
         students[field].push(firstname);
-        totalStudents++;
+        totalStudents += 1;
       }
     });
 
@@ -41,9 +41,11 @@ function countStudents(path) {
 
     // Log the number of students in each field and the list of their first names
     for (const field in students) {
-      const count = students[field].length;
-      const list = students[field].join(', ');
-      console.log(`Number of students in ${field}: ${count}. List: ${list}`);
+      if (Object.prototype.hasOwnProperty.call(students, field)) {
+        const count = students[field].length;
+        const list = students[field].join(', ');
+        console.log(`Number of students in ${field}: ${count}. List: ${list}`);
+      }
     }
   } catch (err) {
     throw new Error('Cannot load the database');
