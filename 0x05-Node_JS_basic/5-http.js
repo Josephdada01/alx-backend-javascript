@@ -11,7 +11,7 @@ const app = http.createServer((req, res) => {
     countStudents(path)
       .then((result) => {
         res.writeHead(200, { 'Content-Type': 'text/plain' });
-        res.write(`This is the list of our students\nNumber of students: ${result.totalStudents}\n`);
+        res.write(`This is the list of our students\n Number of students: ${result.totalStudents}\n`);
         for (const field in result.students) {
           if (Object.prototype.hasOwnProperty.call(result.students, field)) {
             const count = result.students[field].length;
