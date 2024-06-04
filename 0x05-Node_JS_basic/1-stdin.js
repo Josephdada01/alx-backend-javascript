@@ -1,4 +1,4 @@
-// a program named 1-stdin.js that will be executed through command line:
+// file path: 1-stdin.js
 
 const readline = require('readline');
 
@@ -16,9 +16,16 @@ function askName() {
   rl.question('', (name) => {
     console.log(`Your name is: ${name}`);
 
-    rl.close();
+    if (process.stdin.isTTY) {
+      // For interactive terminal, do not automatically close
+      rl.prompt();
+    } else {
+      // For piped input, close the readline interface
+      rl.close();
+    }
   });
 }
+
 rl.on('close', () => {
   console.log('This important software is now closing');
   process.exit(0);
