@@ -3,7 +3,6 @@
 // The function should round a and b and return the sum of it
 
 function calculateNumber(a, b) {
-  const sum = a + b;
-  return Math.ceil(sum);
+  return Math.round(a) + Math.round(b);
 }
 module.exports = calculateNumber;

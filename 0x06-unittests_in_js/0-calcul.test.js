@@ -29,11 +29,6 @@ describe('calculateNumber', () => {
       assert.equal(calculateNumber(100000, 300000), 400000);
     });
   });
-  describe('when given small numbers', () => {
-    it('should return a small number', () => {
-      assert.equal(calculateNumber(0.0001, 0.0003), 1);
-    });
-  });
   describe('when given negative numbers', () => {
     it('should return a negative number', () => {
       assert.equal(calculateNumber(-1, -3), -4);

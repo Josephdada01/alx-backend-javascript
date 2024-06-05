@@ -3,7 +3,7 @@
 const assert = require('assert');
 const calculateNumber = require('./1-calcul');
 
-describe('calculateNumber', () => {
+describe('#calculateNumber()', () => {
   describe('when type is SUM', () => {
     it('should return the sum of a and b', () => {
       assert.equal(calculateNumber('SUM', 1.4, 4.5), 6);
@@ -19,7 +19,7 @@ describe('calculateNumber', () => {
     });
   });
 
-  describe('when type is SUBTRACT', () => {
+  describe('#calwhen type is SUBTRACT', () => {
     it('should return a minus b', () => {
       assert.equal(calculateNumber('SUBTRACT', 1.4, 4.5), -4);
     });
