@@ -48,5 +48,5 @@ describe('calculateNumber', () => {
     it('should return the same number', () => {
       assert.equal(calculateNumber(4, 4), 8);
     });
-  });  
+  });
 });
