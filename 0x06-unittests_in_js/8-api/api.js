@@ -1,19 +1,18 @@
 const express = require('express');
 
-// Create an instance of express
 const app = express();
+const port = 7865;
 
-// Define a route for GET /
-app.get('/', (req, res) => {
-    res.send('Welcome to the payment system');
+app.get('/', (request, response) => {
+  response.send('Welcome to the payment system');
 });
 
-// Export the app
-module.exports = app;
+app.get('/cart/:id([0-9]+)', (request, response) => {
+    response.send(`Payment methods for cart ${request.params.id}`);
+});
 
-if (require.main === module) {
-    const PORT = 7865;
-    app.listen(PORT, () => {
-        console.log(`API available on localhost port ${PORT}`);
-    });
-}
+app.listen(port, () => {
+    console.log(`API available on localhost port ${port}`);
+});
+
+module.exports = app;
